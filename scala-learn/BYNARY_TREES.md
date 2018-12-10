@@ -1,6 +1,5 @@
 ## TODO Improve this readme file, formatting issues
 
-
 ##### P54 Omitted; our tree representation will only allow well-formed trees.
 Score one for static typing.
 

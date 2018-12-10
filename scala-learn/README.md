@@ -1,14 +1,14 @@
 # Coding every day
 ### S-99: Ninety-Nine Scala Problems
 
-*Several branch conventions*
-- master branch should contains only description of problem
-- dev/${PROBLEM_NAME} - should contain solution
+#### Several branch conventions
+- **master** branch should contains only description of problem
+- **dev/${PROBLEM_NAME}** - should contain solution
 
 Those mini projects was taken from [aperiodic](http://aperiodic.net/phil/scala/s-99/)
 
 Problems difficulty
-- '*   easy
+- *`   easy
 - **  intermediate
 - *** difficult
 
