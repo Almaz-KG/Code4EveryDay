@@ -1,4 +1,4 @@
-package exercises
+package exercises.part1
 
 object ScalaExercises1 {
 
