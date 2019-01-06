@@ -2,13 +2,14 @@ package filesystem
 
 import filesystem.files.Directory
 
-case class State(root: Directory,
-                 workingDirectory: Directory,
-                 output: String,
-                 isRunning: Boolean) {
+class State(val root: Directory,
+            val workingDirectory: Directory,
+            val output: String,
+            val isRunning: Boolean) {
 
   def show(): Unit = {
-    println(output)
+    if(!output.isEmpty)
+      println(output)
     print(s"$SHELL_TOKEN")
   }
 
