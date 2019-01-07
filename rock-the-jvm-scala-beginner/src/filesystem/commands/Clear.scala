@@ -1,10 +1,8 @@
 package filesystem.commands
 import filesystem.State
 
-object ExitCommand extends Command {
-
+object Clear extends Command {
   override def apply(state: State): State = {
-    State(state.workingDirectory, "Goodbye", isRunning = false)
+    State(state.workingDirectory, "\n" * 100)
   }
-
 }

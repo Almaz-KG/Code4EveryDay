@@ -10,9 +10,9 @@ object FileSystem {
 
   def main(args: Array[String]): Unit = {
 
-    val root: Directory = RootDirectory
+    val root: Directory = RootDirectory()
     val scanner: Scanner = new Scanner(System.in)
-    var state: State = State(root, root)
+    var state: State = State(root)
 
     do {
       state.show()

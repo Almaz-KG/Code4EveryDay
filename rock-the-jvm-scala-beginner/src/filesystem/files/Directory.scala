@@ -1,17 +1,25 @@
 package filesystem.files
 
+
 class Directory(override val parent: Directory,
                 override val name: String,
-                val contents: Seq[File]) extends File(parent, name) {
+                var contents: Seq[File]) extends File(parent, name) {
+
+  def isRoot: Boolean = false
 
   override def isDirectory: Boolean = true
 
   override def isFile: Boolean = false
 
-  override def getChild(name: String): Option[File] = {
+  override def getChildOption(name: String): Option[File] = {
     if (!containFile(name)) None
     else contents
       .find(n => name == n.name)
+  }
+
+  override def getChild(name: String): File = {
+    if (!containFile(name)) throw new IllegalArgumentException(s"Child with name $name not found")
+    else contents.find(n => name == n.name).get
   }
 
   def containFile(name: String): Boolean = {

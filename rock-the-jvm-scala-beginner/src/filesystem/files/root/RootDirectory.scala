@@ -6,5 +6,16 @@ private[root] object _RootDir extends Directory(parent = null, name = "", conten
   override def path: String = ""
 }
 
-object RootDirectory extends Directory(parent = _RootDir, name = "", contents = Seq()) {
+class RootDirectory(children: Seq[File]) extends Directory(parent = _RootDir, name = "", contents = children) {
+
+  override def isRoot: Boolean = true
+
+  override def path: String = filesystem.DIRECTORY_SEPARATOR
+}
+
+object RootDirectory {
+
+  def apply(): RootDirectory = new RootDirectory(Seq[File]())
+
+  def path: String = filesystem.DIRECTORY_SEPARATOR
 }

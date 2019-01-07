@@ -9,6 +9,6 @@ object Ls extends Command {
       .map(f => f.toString)
       .mkString("\n")
 
-    State(state.root, state.workingDirectory, output)
+    State(state.workingDirectory, output)
   }
 }
