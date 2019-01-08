@@ -3,8 +3,11 @@ package filesystem
 import filesystem.files.root.RootDirectory
 import filesystem.files.{Directory, File}
 
+import scala.annotation.tailrec
+
 package object commands {
 
+  @tailrec
   def findRoot(directory: Directory): Directory = {
     if (directory.isRoot)
       directory
@@ -12,38 +15,34 @@ package object commands {
       findRoot(directory.parent)
   }
 
-  /**
-    * TODO: Implement this method with functional style
-    * TODO: The main idea of this project is practicing development with immutable objects
-    *
-    * Updating & rebuilding file system structure
-    *
-    * @param workingDirectory - directory where we start update process
-    * @return updated root directory
-    */
-  def updateFileSystemStructure(workingDirectory: Directory) : Directory = {
+  def updateFileSystemStructure(currentDirectory: Directory,
+                                path: List[String],
+                                newFile: File) : Directory = {
+    if (path.isEmpty) currentDirectory.addFile(newFile)
+    else {
+      val oldFile = currentDirectory.getChild(path.head)
 
-    def updateParent(oldParent: Directory, children: Seq[File]): Directory = {
-       ???
+      currentDirectory.replaceFile(oldFile,
+        updateFileSystemStructure(oldFile.asInstanceOf[Directory], path.tail, newFile))
     }
-
-    def _updateFileSystemStructure(workingDirectory: Directory): Directory = {
-      val oldParent: Directory = workingDirectory.parent
-      val oldFolder: Directory = oldParent.getChild(workingDirectory.name).asInstanceOf[Directory]
-
-      val newFiles: Seq[File] = oldParent.contents
-          .filter(f => f.name != oldFolder.name) :+ workingDirectory
-
-      val directory = updateParent(oldParent, newFiles)
-      ???
-    }
-
-
-//    _updateFileSystemStructure(workingDirectory)
-    ???
   }
 
 
+  def getAllFolders(directory: Directory): List[Directory] = {
+//    directory.path.substring(1).split(filesystem.DIRECTORY_SEPARATOR).toList
+
+    @tailrec
+    def getAllFolders(directory: Directory, accumulator: List[Directory]) : List[Directory] = {
+      if (directory.isRoot)
+        accumulator
+      else
+        getAllFolders(directory.parent, accumulator :+ directory)
+    }
+
+    getAllFolders(directory, List())
+  }
+
+  @tailrec
   def findChildFolder(root: Directory, directoryPath: String): Option[Directory] = {
     val sp = filesystem.DIRECTORY_SEPARATOR
 

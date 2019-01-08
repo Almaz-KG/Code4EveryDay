@@ -3,8 +3,7 @@ package filesystem.files
 
 class Directory(override val parent: Directory,
                 override val name: String,
-                var contents: Seq[File]) extends File(parent, name) {
-
+                val contents: Seq[File]) extends File(parent, name) {
   def isRoot: Boolean = false
 
   override def isDirectory: Boolean = true
@@ -20,6 +19,32 @@ class Directory(override val parent: Directory,
   override def getChild(name: String): File = {
     if (!containFile(name)) throw new IllegalArgumentException(s"Child with name $name not found")
     else contents.find(n => name == n.name).get
+  }
+
+  def replaceFile(oldFile: File, newFile: File): Directory = {
+    val newFiles = contents
+      .filter(f => !(f.name == oldFile.name && f.path == oldFile.path)) :+ newFile
+
+    new Directory(parent, name, newFiles)
+  }
+
+  def addFile(newFile: File) : Directory = {
+    new Directory(parent, name, contents :+ newFile)
+  }
+
+  def findDescendantDirectory(folders: List[String]): Option[Directory] = {
+    if (folders.isEmpty)
+      Some(this)
+    else if (!containFile(folders.head))
+      None
+    else {
+      val child = getChild(folders.head)
+      if (child.isDirectory){
+        child.asInstanceOf[Directory].findDescendantDirectory(folders.tail)
+      } else {
+        None
+      }
+    }
   }
 
   def containFile(name: String): Boolean = {

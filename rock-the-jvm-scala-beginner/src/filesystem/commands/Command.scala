@@ -18,7 +18,7 @@ object Command {
     params match  {
       case Array("") => emptyCommand()
       case Array("touch", _*) => new Touch(params.slice(1, params.length))
-      case Array("mkdir", _*) => new Mkdir(params.slice(1, params.length))
+      case Array("mkdir", _*) => new Mkdir(params(1))
       case Array("cd", _*) => if (params.nonEmpty) new Cd(params(1)) else new Cd("")
       case Array("cls", _*) => Clear
       case Array("clear", _*) => Clear

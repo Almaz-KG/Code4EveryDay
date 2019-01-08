@@ -1,51 +1,45 @@
 package filesystem.commands
 import filesystem.State
-import filesystem.files.{Directory, File}
+import filesystem.files.Directory
 
-class Mkdir(directories: Array[String]) extends Command {
+class Mkdir(directory: String) extends Command {
 
   override def apply(state: State): State = {
-    if (directories.isEmpty)
+    if (directory.isEmpty)
       State(state.workingDirectory, output = "usage mkdir [directories]")
     else {
-      val workingDirectory = state.workingDirectory
-
-      val existsDirs = directories
-        .filter(name => workingDirectory.containFile(name))
-
-      directories
-        .filter(name => !workingDirectory.containFile(name))
-        .foreach(name => buildDirectory(workingDirectory, name))
-
-      val output: String = existsDirs
-        .map(name => s"mkdir: $name: File exists")
-        .mkString("\n")
-
-      State(state.workingDirectory, output)
+      if(directory.startsWith(filesystem.DIRECTORY_SEPARATOR))
+        State(state.workingDirectory, s"mkdir: $directory: Permission denied")
+      else if (directory.contains(filesystem.DIRECTORY_SEPARATOR)) {
+        // TODO: Implement here the "-p" parameter
+        State(state.workingDirectory, s"mkdir: name must not contain ${filesystem.DIRECTORY_SEPARATOR}")
+      } else if(state.workingDirectory.containFile(directory)){
+          State(state.workingDirectory, s"mkdir: $directory: File exists")
+      } else if(!isValidDirectoryName(directory)){
+        State(state.workingDirectory, s"mkdir: $directory: is invalid name")
+      } else {
+        createDirectory(directory, state)
+      }
     }
   }
 
-  private def buildDirectory(root: Directory, name: String): Unit = {
-    if (name.contains(filesystem.DIRECTORY_SEPARATOR)){
-      val dirNames = name.split(filesystem.DIRECTORY_SEPARATOR)
+  private def isValidDirectoryName(name: String): Boolean = !name.contains(".")
 
-      if (root.containFile(dirNames(0))){
-        val folder = root.getChild(dirNames(0))
+  private def createDirectory(name: String, state: State): State = {
+    val wd = state.workingDirectory
 
-        if(folder.isDirectory){
-          val children = name.substring(name.indexOf(filesystem.DIRECTORY_SEPARATOR) + 1)
-          buildDirectory(folder.asInstanceOf[Directory], children)
-        }
-      } else {
-        val parent = Directory(root, dirNames(0))
-        root.contents = root.contents :+ parent
-        val childName = name.substring(name.indexOf(filesystem.DIRECTORY_SEPARATOR) + 1)
-        buildDirectory(parent, childName)
-      }
-    } else {
-      if (!root.containFile(name)){
-        root.contents = root.contents :+ Directory(root, name)
-      }
-    }
+    // all folders from root to working directory
+    val folders: List[String] = getAllFolders(wd).map(f => f.name)
+
+    val newDirectory = Directory.empty(wd, name)
+
+    val newRoot = updateFileSystemStructure(findRoot(wd), folders, newDirectory)
+
+    val newWd = newRoot.findDescendantDirectory(folders)
+
+    newWd
+      .map(wd => State(wd))
+      .getOrElse(
+        State(wd, "Something happend wrong"))
   }
 }

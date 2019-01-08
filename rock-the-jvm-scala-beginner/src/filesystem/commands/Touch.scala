@@ -17,7 +17,7 @@ class Touch(names: Array[String]) extends Command {
       .contents
       .filter(f => !newFiles.map(nf => nf.name).contains(f.name))
 
-    wd.contents = newFiles ++ oldFilesFiltered
+//    wd.contents = newFiles ++ oldFilesFiltered
 
     State(wd)
   }

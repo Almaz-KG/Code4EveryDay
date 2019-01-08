@@ -38,16 +38,12 @@ class Cd(directory: String) extends Command {
     } else if (!wd.containFile(dir)) {
       State(wd, s"cd: $dir: No such file of directory")
     } else {
-      val child = wd.getChildOption(dir)
-      if (child.isEmpty)
-        State(wd, s"cd: $dir: No such file of directory")
-      else {
-        if(child.get.isDirectory) {
-          State(child.get.asInstanceOf[Directory])
-        }
-        else
-          State(wd, s"cd: $dir: Not a directory")
+      val child = wd.getChild(dir)
+      if(child.isDirectory) {
+        State(child.asInstanceOf[Directory])
       }
+      else
+        State(wd, s"cd: $dir: Not a directory")
     }
   }
 }
