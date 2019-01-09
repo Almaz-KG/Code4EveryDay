@@ -5,6 +5,6 @@
 ```
 
 #### Web
-- [Eclipse Vert.x](https://vertx.io/) - Высокопроизводительный web-движок (тесты скорости 
+- [Eclipse Vert.x](https://vertx.io/) - Высокопроизводительный web-движок [тесты скорости](https://www.techempower.com/benchmarks/#section=data-r17&hw=ph&test=query) 
 - [Scala Akka](https://akka.io/) - Акторы на Scala
   - [Akka essentials](https://www.udemy.com/akka-essentials/)
