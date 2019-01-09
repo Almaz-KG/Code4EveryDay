@@ -8,11 +8,4 @@ Mini projects for learning programming languages like scala, java, python etc.
 - #### [Chess on scala](scala-chess/)
 - #### [Rock the JVM Scala](rock-the-jvm-scala-beginner/)
 
-### Python part
-- Soon will be desribed
-
-### ML part
-- Soon will be desribed
-
-### Go part
-- Soon will be desribed
+### [Interesting techs](TECH_INTER.md)
