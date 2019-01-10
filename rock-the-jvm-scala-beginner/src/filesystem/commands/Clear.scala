@@ -3,6 +3,6 @@ import filesystem.State
 
 object Clear extends Command {
   override def apply(state: State): State = {
-    State(state.workingDirectory, "\n" * 100)
+    state.copy(output = "\n" * 100)
   }
 }

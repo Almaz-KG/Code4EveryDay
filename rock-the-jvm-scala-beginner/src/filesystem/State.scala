@@ -2,9 +2,10 @@ package filesystem
 
 import filesystem.files.Directory
 
-class State(val workingDirectory: Directory,
-            val output: String,
-            val isRunning: Boolean) {
+case class State(root: Directory,
+                 workingDirectory: Directory,
+                 output: String,
+                 isRunning: Boolean) {
 
   def show(): Unit = {
     if(!output.isEmpty)
@@ -12,12 +13,5 @@ class State(val workingDirectory: Directory,
     print(s"${workingDirectory.name}$SHELL_TOKEN")
   }
 
-}
-
-object State {
-
-  def apply(workingDirectory: Directory,
-            output: String = "",
-            isRunning: Boolean = true): State
-      = new State(workingDirectory, output, isRunning)
+  def setMessage(message: String): State = this.copy(output = message)
 }

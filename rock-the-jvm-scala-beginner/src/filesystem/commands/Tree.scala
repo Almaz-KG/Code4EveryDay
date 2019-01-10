@@ -5,10 +5,9 @@ import filesystem.files.{Directory, File}
 object Tree extends Command {
 
   override def apply(state: State): State = {
-    val output: String = buildTree(state.workingDirectory, "")
-    State(state.workingDirectory, output)
+    val message: String = buildTree(state.workingDirectory, "")
+    state.copy(output = message)
   }
-
 
   private def buildTree(file: File, accumulator: String): String = {
     if (file.isDirectory){

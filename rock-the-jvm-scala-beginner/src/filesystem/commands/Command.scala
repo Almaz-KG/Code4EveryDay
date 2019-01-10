@@ -10,7 +10,9 @@ trait Command {
 
 object Command {
 
-  def emptyCommand(): Command = (state: State) => State(state.workingDirectory)
+  def emptyCommand(): Command = new Command {
+    override def apply(state: State): State = state.copy(output = "")
+  }
 
   def from(input: String): Command = {
     val params = input.split("\\s+")
@@ -29,5 +31,4 @@ object Command {
       case _ => UnknownCommand
     }
   }
-
 }

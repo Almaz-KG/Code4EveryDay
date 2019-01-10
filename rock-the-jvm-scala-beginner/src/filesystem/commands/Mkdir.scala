@@ -2,44 +2,52 @@ package filesystem.commands
 import filesystem.State
 import filesystem.files.Directory
 
-class Mkdir(directory: String) extends Command {
+class Mkdir(directoryName: String) extends Command {
 
   override def apply(state: State): State = {
-    if (directory.isEmpty)
-      State(state.workingDirectory, output = "usage mkdir [directories]")
+    if (directoryName.isEmpty)
+      state.copy(output = "usage mkdir [directories]")
     else {
-      if(directory.startsWith(filesystem.DIRECTORY_SEPARATOR))
-        State(state.workingDirectory, s"mkdir: $directory: Permission denied")
-      else if (directory.contains(filesystem.DIRECTORY_SEPARATOR)) {
+      if(directoryName.startsWith(filesystem.DIRECTORY_SEPARATOR))
+        state.copy(output = s"mkdir: $directoryName: Permission denied")
+      else if (directoryName.contains(filesystem.DIRECTORY_SEPARATOR)) {
         // TODO: Implement here the "-p" parameter
-        State(state.workingDirectory, s"mkdir: name must not contain ${filesystem.DIRECTORY_SEPARATOR}")
-      } else if(state.workingDirectory.containFile(directory)){
-          State(state.workingDirectory, s"mkdir: $directory: File exists")
-      } else if(!isValidDirectoryName(directory)){
-        State(state.workingDirectory, s"mkdir: $directory: is invalid name")
+        state.copy(output = s"mkdir: name must not contain ${filesystem.DIRECTORY_SEPARATOR}")
+      } else if(state.workingDirectory.containFile(directoryName)){
+        state.copy(output = s"mkdir: $directoryName: File exists")
+      } else if(!isValidDirectoryName(directoryName)){
+        state.copy(output = s"mkdir: $directoryName: is invalid name")
       } else {
-        createDirectory(directory, state)
+        createDirectory(directoryName, state)
       }
     }
   }
 
   private def isValidDirectoryName(name: String): Boolean = !name.contains(".")
 
-  private def createDirectory(name: String, state: State): State = {
+  def createDirectory(name: String, state: State): State = {
+    def updateStructure(currentDirectory: Directory, path: List[String], newEntry: Directory): Directory = {
+      if (path.isEmpty) currentDirectory.addFile(newEntry)
+      else {
+        val oldEntry = currentDirectory.getChild(path.head).asDirectory
+        currentDirectory.replaceFile(oldEntry, updateStructure(oldEntry, path.tail, newEntry))
+      }
+    }
+
     val wd = state.workingDirectory
 
-    // all folders from root to working directory
-    val folders: List[String] = getAllFolders(wd).map(f => f.name)
+    // 1. all the directories in the full path
+    val allDirsInPath = wd.getAllParents
 
-    val newDirectory = Directory.empty(wd, name)
+    // 2. create new directory entry in the wd
+    val newEntry: Directory = Directory.empty(wd.path, name)
 
-    val newRoot = updateFileSystemStructure(findRoot(wd), folders, newDirectory)
+    // 3. update the whole directory structure starting from the root
+    // (the directory structure is IMMUTABLE)
+    val newRoot = updateStructure(state.root, allDirsInPath, newEntry)
 
-    val newWd = newRoot.findDescendantDirectory(folders)
-
-    newWd
-      .map(wd => State(wd))
-      .getOrElse(
-        State(wd, "Something happend wrong"))
+    // 4. find new working directory INSTANCE given wd's full path, in the NEW directory structure
+    val newWd = newRoot.findDescendantDirectory(wd)
+    state.copy(root = newRoot, workingDirectory = newWd, output = "")
   }
 }

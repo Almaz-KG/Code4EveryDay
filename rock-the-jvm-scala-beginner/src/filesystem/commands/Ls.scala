@@ -3,12 +3,12 @@ import filesystem.State
 
 object Ls extends Command {
   override def apply(state: State): State = {
-    val output: String = state
+    val message: String = state
       .workingDirectory
       .contents
       .map(f => f.toString)
       .mkString("\n")
 
-    State(state.workingDirectory, output)
+    state.copy(output = message)
   }
 }
