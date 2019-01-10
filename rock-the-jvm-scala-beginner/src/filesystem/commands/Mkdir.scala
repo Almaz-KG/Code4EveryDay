@@ -2,30 +2,54 @@ package filesystem.commands
 import filesystem.State
 import filesystem.files.Directory
 
-class Mkdir(directoryName: String) extends Command {
+import scala.annotation.tailrec
+
+class Mkdir(args: Array[String]) extends Command {
 
   override def apply(state: State): State = {
-    if (directoryName.isEmpty)
-      state.copy(output = "usage mkdir [directories]")
-    else {
-      if(directoryName.startsWith(filesystem.DIRECTORY_SEPARATOR))
-        state.copy(output = s"mkdir: $directoryName: Permission denied")
-      else if (directoryName.contains(filesystem.DIRECTORY_SEPARATOR)) {
-        // TODO: Implement here the "-p" parameter
-        state.copy(output = s"mkdir: name must not contain ${filesystem.DIRECTORY_SEPARATOR}")
-      } else if(state.workingDirectory.containFile(directoryName)){
-        state.copy(output = s"mkdir: $directoryName: File exists")
-      } else if(!isValidDirectoryName(directoryName)){
-        state.copy(output = s"mkdir: $directoryName: is invalid name")
-      } else {
-        createDirectory(directoryName, state)
+    var newState = state
+
+    @tailrec
+    def _apply(directoryNames: Array[String], outputs: List[String]): List[String]= {
+
+      if (directoryNames.isEmpty) outputs
+      else {
+        val currentName = directoryNames.head
+        if (currentName.isEmpty)
+          outputs :+ "mkdir: missing operand"
+        else {
+          if (currentName.startsWith(filesystem.DIRECTORY_SEPARATOR))
+            outputs :+ s"mkdir: $currentName: Permission denied"
+          else if (currentName.contains(filesystem.DIRECTORY_SEPARATOR)) {
+            if (canCreateSubDirs) {
+              // val folders = currentName.split(filesystem.DIRECTORY_SEPARATOR)
+              // TODO: Implement "-p" parameter like a Unix mkdir command
+              outputs
+            } else {
+              outputs :+ s"mkdir: cannot create directory `$currentName`: No such file or directory"
+            }
+          } else if (state.workingDirectory.containFile(currentName)) {
+            outputs :+ s"mkdir: $currentName: File exists"
+          } else if (!isValidDirectoryName(currentName)) {
+            outputs :+ s"mkdir: $currentName: is invalid name"
+          } else {
+            newState = createDirectory(currentName, newState)
+            _apply(directoryNames.tail, outputs)
+          }
+        }
       }
     }
+
+    val results = _apply(args, List())
+    val message = results.mkString("\n")
+    newState.copy(output = message)
   }
+
+  private[this] def canCreateSubDirs: Boolean = args.contains("-p")
 
   private def isValidDirectoryName(name: String): Boolean = !name.contains(".")
 
-  def createDirectory(name: String, state: State): State = {
+  private def createDirectory(name: String, state: State): State = {
     def updateStructure(currentDirectory: Directory, path: List[String], newEntry: Directory): Directory = {
       if (path.isEmpty) currentDirectory.addFile(newEntry)
       else {
