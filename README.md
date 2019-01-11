@@ -6,16 +6,32 @@ Mini projects for learning programming languages like scala, java, python etc.
 
 - #### [S-99: Ninety-Nine Scala Problems](scala-learn/)
 - #### [Chess on scala](scala-chess/)
-- #### [Rock the JVM Scala](rock-the-jvm-scala-beginner/)
+- #### [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/)
 
 ### Список интересных технологий и фреймворков для изучения
 
 ```
 В этом файле описываю те технологии и фреймвоки, которые мне показались интересным для изучения
 ```
+#### Scala
+- [Rock the JVM! Advanced Scala and Functional Programming](https://www.udemy.com/advanced-scala/)
+- [Scala for Java Developers (in Russian)](https://www.udemy.com/scala-for-java-developers-ru)
+- [Scala Advanced, Part 2 - Best Practices, Async, Serializing](https://www.udemy.com/scala-advanced-part-2/)
+- [Implementing Graph Algorithms Using Scala](https://www.udemy.com/implementing-graph-algorithms-using-scala/)
+
+#### Akka
+- [Akka essentials](https://www.udemy.com/akka-essentials/)
+- [Akka Persistence with Scala!](https://www.udemy.com/akka-persistence/?couponCode=ROCKTHEJVM)
+
+#### BigData
+- [Apache Spark 2 with Scala - Hands On with Big Data!](https://www.udemy.com/apache-spark-with-scala-hands-on-with-big-data/learn/v4/overview)
 
 #### Web
 - [Eclipse Vert.x](https://vertx.io/) - Высокопроизводительный web-движок  [[тесты скорости](https://www.techempower.com/benchmarks/#section=data-r17&hw=ph&test=query) ]
-- [Scala Akka](https://akka.io/) - Акторы на Scala
-  - [Akka essentials](https://www.udemy.com/akka-essentials/)
 
+
+***
+#### English
+- [Player podcasts - Many podcasts about Tech, Ideas, Lifestyle](https://player.fm/)
+- [English Language Intermediate Masterclass ⭐](https://www.udemy.com/english-language-intermediate/learn/v4/overview)
+- [The Complete TOEFL iBT Success Course](https://www.udemy.com/the-complete-toefl-ibt-success-course/)
