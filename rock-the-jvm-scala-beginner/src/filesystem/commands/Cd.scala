@@ -19,7 +19,7 @@ class Cd(dir: String) extends Command {
 
     // 4. change the state given the new directory
     if (destinationDirectory == null || !destinationDirectory.isDirectory)
-      state.setMessage(dir + ": no such directory")
+      state.setMessage(s"cd: $dir: no such directory")
     else
       state.copy(workingDirectory = destinationDirectory.asDirectory, output = "")
   }
