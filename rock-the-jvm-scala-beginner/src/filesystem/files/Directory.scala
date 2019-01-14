@@ -38,6 +38,12 @@ class Directory(override val parentPath: String,
     new Directory(parentPath, name, contents :+ newFile)
   }
 
+  def removeFileIfExists(fileName: String) : Directory = {
+    if (containFile(fileName)){
+      val acceptedFiles = contents.filter(f => f.name != fileName)
+      new Directory(parentPath, name, acceptedFiles)
+    } else this
+  }
 
   def findDescendantDirectory(path: List[String]): Directory = {
     if (path.isEmpty) this

@@ -27,7 +27,7 @@ abstract class CreateFile(args: Array[String]) extends Command {
           } else if (!isValidFileName(currentName)) {
             _apply(directoryNames.tail, outputs :+ s"$commandName: $currentName: is invalid name")
           } else {
-            newState = createDirectory(currentName, newState)
+            newState = createFile(currentName, newState)
             _apply(directoryNames.tail, outputs)
           }
         }
@@ -39,7 +39,7 @@ abstract class CreateFile(args: Array[String]) extends Command {
     newState.copy(output = message)
   }
 
-  private[this] def createDirectory(name: String, state: State): State = {
+  private[this] def createFile(name: String, state: State): State = {
     def updateStructure(currentDirectory: Directory, path: List[String], newEntry: File): Directory = {
       if (path.isEmpty) currentDirectory.addFile(newEntry)
       else {
