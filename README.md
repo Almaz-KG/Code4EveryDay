@@ -27,8 +27,8 @@ Mini projects for learning programming languages like scala, java, python etc.
 
 #### BigData
 - [ ] [Apache Spark 2 with Scala - Hands On with Big Data!](https://www.udemy.com/apache-spark-with-scala-hands-on-with-big-data/learn/v4/overview) - Udemy course
-- Big Data processing paradigms
-- Advanced Hadoop knownledge 
+- [ ] [Big Data for Data Engineers Yandex coursera specialization](https://www.coursera.org/specializations/big-data-engineering)
+- [ ] [Big Data coursera specialization](https://www.coursera.org/specializations/big-data)
 - [HBase](https://hbase.apache.org/)
 - [Cassandra](http://cassandra.apache.org/)
 
