@@ -8,7 +8,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - #### [Chess on scala](scala-chess/)
 - #### [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/)
 
-### List of interesting (for me, of course) technologies and frameworks for learning
+### List of interesting technologies and frameworks for learning
 
 #### Scala
 - [X] [Rock the JVM! Scala and Functional Programming for Beginners](https://www.udemy.com/rock-the-jvm-scala-for-beginners)
