@@ -1,10 +1,6 @@
 package filesystem.files
 
-class File(val parentPath: String, val name: String) {
-
-  def getChildOption(name: String): Option[File] = throw new IllegalStateException("File not contains any children files")
-
-  def getChild(name: String): File = throw new IllegalStateException("File not contains any children files")
+class File(val parentPath: String, val name: String, val content: String = "") {
 
   def path: String = {
     val prefix = if (filesystem.DIRECTORY_SEPARATOR == parentPath) "" else parentPath

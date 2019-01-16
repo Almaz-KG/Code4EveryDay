@@ -11,13 +11,13 @@ class Directory(override val parentPath: String,
 
   override def asDirectory: Directory = this
 
-  override def getChildOption(name: String): Option[File] = {
+  def getChildOption(name: String): Option[File] = {
     if (!containFile(name)) None
     else contents
       .find(n => name == n.name)
   }
 
-  override def getChild(name: String): File = {
+  def getChild(name: String): File = {
     if (!containFile(name)) throw new IllegalArgumentException(s"Child with name $name not found")
     else contents.find(n => name == n.name).get
   }
@@ -36,6 +36,13 @@ class Directory(override val parentPath: String,
 
   def addFile(newFile: File) : Directory = {
     new Directory(parentPath, name, contents :+ newFile)
+  }
+
+  def addOrReplaceFile(newFile: File) : Directory = {
+    if (containFile(newFile.name))
+      replaceFile(getChild(newFile.name), newFile)
+    else
+      new Directory(parentPath, name, contents :+ newFile)
   }
 
   def removeFileIfExists(fileName: String) : Directory = {
