@@ -19,6 +19,7 @@ object Command {
 
     params match  {
       case Array("") => emptyCommand()
+      case Array("cat", tail@_*) => new Cat(tail.toArray)
       case Array("echo", tail@_*) => new Echo(tail.toArray)
       case Array("touch", tail@_*) => new Touch(tail.toArray)
       case Array("mkdir", tail@_*) => new Mkdir(tail.toArray)
