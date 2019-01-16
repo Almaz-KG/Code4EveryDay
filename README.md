@@ -2,15 +2,15 @@
 
 Mini projects for learning programming languages like scala, java, python etc.
 
-### Scala part
+### Scala mini projects
 
 - #### [S-99: Ninety-Nine Scala Problems](scala-learn/)
 - #### [Chess on scala](scala-chess/)
-- #### [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/)
+- #### [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
 
 ### List of interesting technologies and frameworks for learning
 
-#### Scala
+#### Scala courses
 - [X] [Rock the JVM! Scala and Functional Programming for Beginners](https://www.udemy.com/rock-the-jvm-scala-for-beginners)
 - [ ] [Rock the JVM! Advanced Scala and Functional Programming](https://www.udemy.com/advanced-scala/)
 - [ ] [Scala for Java Developers (in Russian)](https://www.udemy.com/scala-for-java-developers-ru)
