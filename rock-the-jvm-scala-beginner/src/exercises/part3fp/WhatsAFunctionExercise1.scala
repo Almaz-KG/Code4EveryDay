@@ -23,6 +23,7 @@ object WhatsAFunctionExercise1 {
     }
 
     val danielsAdder: Int => Int => Int = v1 => v2 => v1 + v2
+    val danielsAdder2 = (x: Int) => (y: Int) => x + y
 
     println(concatenator("Hello ", "Scala"))
     println(function1("Hello ", "Scala"))
@@ -33,5 +34,6 @@ object WhatsAFunctionExercise1 {
     val adder3 = danielsAdder(3)
     println(adder3(5))
     println(danielsAdder(3)(5))  // curried function
+    println(danielsAdder2(3)(5))  // curried function
   }
 }
