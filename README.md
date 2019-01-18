@@ -4,9 +4,9 @@ Mini projects for learning programming languages like scala, java, python etc.
 
 ### Scala mini projects
 
-- #### [S-99: Ninety-Nine Scala Problems](scala-learn/)
-- #### [Chess on scala](scala-chess/)
-- #### [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
+- [ ] [S-99: Ninety-Nine Scala Problems](scala-learn/)
+- [ ] [Chess on scala](scala-chess/)
+- [x] [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
 
 ### List of interesting technologies and frameworks for learning
 
