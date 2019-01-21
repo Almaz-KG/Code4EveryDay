@@ -17,6 +17,8 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Scala Advanced, Part 2 - Best Practices, Async, Serializing](https://www.udemy.com/scala-advanced-part-2/)
 - [ ] [Implementing Graph Algorithms Using Scala](https://www.udemy.com/implementing-graph-algorithms-using-scala/)
 - [ ] [Programming Reactive Systems](https://www.edx.org/course/programming-reactive-systems) Edx course
+
+#### Scala Frameworks
 - [ ] [Scalaz](http://eed3si9n.com/learning-scalaz/)
 - [ ] [Play Framework](https://www.playframework.com/)
 - [ ] [Slick | Scala Hibernate?](http://slick.lightbend.com/)
