@@ -6,6 +6,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 
 - [ ] [S-99: Ninety-Nine Scala Problems](scala-learn/)
 - [ ] [Chess on scala](scala-chess/)
+- [ ] [Algorithms and data types for implementing in scala](https://en.wikipedia.org/wiki/List_of_data_structures#Arrays)
 - [x] [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
 
 ### List of interesting technologies and frameworks for learning
