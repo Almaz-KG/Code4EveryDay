@@ -46,5 +46,15 @@ object TuplesAndMaps {
 
     val names = List("Moscow", "New York", "Madrid", "Barcelona", "Buenos Aires")
     println(names.groupBy(x => x.charAt(0)))
+
+    val cities = Map("Moscow" -> ("Russia", 13), "Saratov" -> ("Russia", 1), "Novosibirsk" -> ("Russia", 4),
+                     "New York" -> ("USA", 8), "San Diego" -> ("USA", 4), "Washington" -> ("USA", 7),
+                     "Madrid" -> ("Spain", 5), "Barcelona" -> ("Spain", 3))
+
+    val population: Map[String, (String, Int)] => Int = map => map.toList.map { case (_, (_, pop)) => pop }.sum
+    val groupedByCountry = cities.groupBy { case (_, (country, _)) => country }
+    val populationByCountry = groupedByCountry.map { case (country, map) => (country, population(map))}
+
+    println(populationByCountry)
   }
 }
