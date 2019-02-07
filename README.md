@@ -16,6 +16,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Rock the JVM! Advanced Scala and Functional Programming](https://www.udemy.com/advanced-scala/)
 - [ ] [Scala for Java Developers (in Russian)](https://www.udemy.com/scala-for-java-developers-ru)
 - [ ] [Scala Advanced, Part 2 - Best Practices, Async, Serializing](https://www.udemy.com/scala-advanced-part-2/)
+- [ ] [Специализация Functional Programming in Scala - Coursera](https://www.coursera.org/specializations/scala?)
 - [ ] [Implementing Graph Algorithms Using Scala](https://www.udemy.com/implementing-graph-algorithms-using-scala/)
 - [ ] [Programming Reactive Systems](https://www.edx.org/course/programming-reactive-systems) Edx course
 
@@ -33,6 +34,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Apache Spark 2 with Scala - Hands On with Big Data!](https://www.udemy.com/apache-spark-with-scala-hands-on-with-big-data/learn/v4/overview) - Udemy course
 - [ ] [Big Data for Data Engineers Yandex coursera specialization](https://www.coursera.org/specializations/big-data-engineering)
 - [ ] [Big Data coursera specialization](https://www.coursera.org/specializations/big-data)
+- [ ] [Design and Build a Data Warehouse for Business Intelligence Implementation](https://www.coursera.org/learn/data-warehouse-bi-building)
 - [HBase](https://hbase.apache.org/)
 - [Cassandra](http://cassandra.apache.org/)
 
