@@ -67,7 +67,7 @@ object AnonymousClassesExercise1 extends App {
     override private[part2] def _toString: String = ""
   }
 
-  class Cons[+T](h: T, t: MyList[T]) extends MyList[T] {
+  case class Cons[+T](h: T, t: MyList[T]) extends MyList[T] {
 
     override def isEmpty: Boolean = false
 
