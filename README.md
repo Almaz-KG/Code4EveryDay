@@ -8,6 +8,8 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Chess on scala](scala-chess/)
 - [ ] [Algorithms and data types for implementing in scala](https://en.wikipedia.org/wiki/List_of_data_structures#Arrays)
 - [x] [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
+- [ ] [Twitter searchbird mini Scala project using Finagle framework](https://twitter.github.io/scala_school/ru/searchbird.html)
+- [ ] [Scala exercises by 47 Degrees Co](https://www.scala-exercises.org/)
 
 ### List of interesting technologies and frameworks for learning
 
@@ -19,7 +21,8 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Специализация Functional Programming in Scala - Coursera](https://www.coursera.org/specializations/scala?)
 - [ ] [Implementing Graph Algorithms Using Scala](https://www.udemy.com/implementing-graph-algorithms-using-scala/)
 - [ ] [Programming Reactive Systems](https://www.edx.org/course/programming-reactive-systems) Edx course
-
+- [ ] [Mark Lewis youtube channel](https://www.youtube.com/user/DrMarkCLewis/playlists)
+- [Scala guides and overviews](https://docs.scala-lang.org/overviews/index.html)
 #### Scala Frameworks
 - [ ] [Scalaz](http://eed3si9n.com/learning-scalaz/)
 - [ ] [Play Framework](https://www.playframework.com/)
