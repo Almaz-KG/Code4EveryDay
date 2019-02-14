@@ -19,7 +19,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Rock the JVM! Advanced Scala and Functional Programming](https://www.udemy.com/advanced-scala/)
 - [ ] [Scala for Java Developers (in Russian)](https://www.udemy.com/scala-for-java-developers-ru)
 - [ ] [Scala Advanced, Part 2 - Best Practices, Async, Serializing](https://www.udemy.com/scala-advanced-part-2/)
-- [ ] [Специализация Functional Programming in Scala - Coursera](https://www.coursera.org/specializations/scala?)
+- [ ] [Functional Programming in Scala - Coursera specialization](https://www.coursera.org/specializations/scala?)
 - [ ] [Implementing Graph Algorithms Using Scala](https://www.udemy.com/implementing-graph-algorithms-using-scala/)
 - [ ] [Programming Reactive Systems](https://www.edx.org/course/programming-reactive-systems) Edx course
 - [ ] [Mark Lewis youtube channel](https://www.youtube.com/user/DrMarkCLewis/playlists)
@@ -43,7 +43,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [Cassandra](http://cassandra.apache.org/)
 
 #### Web
-- [Eclipse Vert.x](https://vertx.io/) - Высокопроизводительный web-движок  [[тесты скорости](https://www.techempower.com/benchmarks/#section=data-r17&hw=ph&test=query) ]
+- [Eclipse Vert.x](https://vertx.io/) - Highperformance web-engine on scala  [[speed tests](https://www.techempower.com/benchmarks/#section=data-r17&hw=ph&test=query) ]
 
 #### Others & relateds
 - Software Engineering patterns GOFs
