@@ -10,6 +10,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [x] [Rock the JVM Scala Beginner](rock-the-jvm-scala-beginner/) [Simple immutable file system example with command line interface]
 - [ ] [Twitter searchbird mini Scala project using Finagle framework](https://twitter.github.io/scala_school/ru/searchbird.html)
 - [ ] [Scala exercises by 47 Degrees Co](https://www.scala-exercises.org/)
+- [ ] [Project on my work place](spark-orm-implicits/)
 
 ### List of interesting technologies and frameworks for learning
 
