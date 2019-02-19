@@ -17,7 +17,7 @@ Mini projects for learning programming languages like scala, java, python etc.
   - [ ] [FP IN SCALA (0 / 8)](https://www.scala-exercises.org/fp_in_scala/getting_started_with_functional_programming)
 - [ ] [Simple spark orm implicits](spark-orm-implicits/)
 
-### List of interesting technologies and frameworks for learning
+### List of interesting technologies and framework materials for learning
 
 #### Scala courses
 - [X] [Rock the JVM! Scala and Functional Programming for Beginners](https://www.udemy.com/rock-the-jvm-scala-for-beginners)
@@ -29,6 +29,7 @@ Mini projects for learning programming languages like scala, java, python etc.
 - [ ] [Programming Reactive Systems](https://www.edx.org/course/programming-reactive-systems) Edx course
 - [ ] [Mark Lewis youtube channel](https://www.youtube.com/user/DrMarkCLewis/playlists)
 - [Scala guides and overviews](https://docs.scala-lang.org/overviews/index.html)
+
 #### Scala Frameworks
 - [ ] [Scalaz](http://eed3si9n.com/learning-scalaz/)
 - [ ] [Play Framework](https://www.playframework.com/)
