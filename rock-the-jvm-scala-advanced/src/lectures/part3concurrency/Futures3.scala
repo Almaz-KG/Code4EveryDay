@@ -4,7 +4,7 @@ import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 
-object Future3 extends App {
+object Futures3 extends App {
 
   case class User(name: String)
   case class Transaction(sender: String, receiver: String, amount: Double, status: String)
@@ -28,7 +28,6 @@ object Future3 extends App {
       // fetch the user from DB
       // create a transaction
       // WAIT for the transaction to finish
-      fetchUser(userName)
 
       val transactionStatusFuture = for {
         user <- fetchUser(userName)
@@ -36,9 +35,12 @@ object Future3 extends App {
       } yield transaction.status
 
       Await.result(transactionStatusFuture, 2.seconds) // implicits conversion -> pimp my library
+//      Await.result(transactionStatusFuture, 1.seconds) // timeout example
     }
   }
 
   println(BankingApp.purchase("Almaz", "iPhone 12", "re:Store", 3000))
+
+  // promises
 
 }
