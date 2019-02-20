@@ -11,3 +11,6 @@
 ##### Projects
 - Functional like list implementation  
 - Dummy file system impl
+
+##### Completed
+![Udemy certificate](Certificate.png "Udemy certificate")
