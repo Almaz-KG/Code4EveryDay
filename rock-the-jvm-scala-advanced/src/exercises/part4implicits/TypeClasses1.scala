@@ -1,7 +1,7 @@
 package exercises.part4implicits
 
 
-object TypeClasses extends App {
+object TypeClasses1 extends App {
   case class User(name: String, age: Int, email: String)
 
   trait Equality[T] {
